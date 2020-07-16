@@ -1,1 +1,5 @@
 export * from './Header';
+export * from './Headerimg';
+export * from './Searchbar';
+export * from './PosterList';
+export * from './Poster';
