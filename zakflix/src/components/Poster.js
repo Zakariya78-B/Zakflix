@@ -5,9 +5,28 @@ class Poster extends Component {
     state = {
         hover: false
     }
+    showOverlay = () => {
+        if(this.state.hover){
+            return;
+        }
+        this.setState({ hover: true });
+    }
+    hideOverlay = () =>{
+        this.setState({ hover: false });
+    }
+    remove = () => {
+        console.log('remove avec redux')
+    }
+    add = () => {
+        console.log('add avec redux')
+    }
     render(){
         return(
-        <div className="poster">
+        <div 
+            onMouseEnter={this.showOverlay}
+            onMouseLeave={this.hideOverlay}
+            className="poster"           
+        >
             <img className="poster--img" src={this.props.imgSrc} alt="poster"/>
             {this.state.hover ? 
             (
@@ -15,10 +34,10 @@ class Poster extends Component {
                     <h3 className="poster--overlay__text">LISTE DE SOUHAITS</h3>
                     {this.props.whished ? 
                         (
-                            <FontAwesome className="poster--icon" name="heart" size="3x" />
+                            <FontAwesome onClick={this.remove} className="poster--icon" name="heart" size="3x" />
                         ):
                         (
-                            <FontAwesome className="poster--icon_not" name="heart-o" size="3x" />
+                            <FontAwesome onClick={this.add} className="poster--icon__not" name="heart-o" size="3x" />
                         )
                     }
                 </div>

@@ -59,6 +59,9 @@ class App extends Component {
   handleSearch = value => {
     console.log('handleSearch',value)
   }
+  loadMore = () => {
+    console.log('load More')
+  }
   render(){
       return (
     <div className="App">
@@ -66,6 +69,7 @@ class App extends Component {
         <Home 
           {...this.state}
           onSearchClick={this.handleSearch}
+          onButtonClick={this.loadMore}
         />
     </div>
   );
