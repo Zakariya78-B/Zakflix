@@ -8,7 +8,7 @@
   cursor: pointer;
 }
 .poster--overlay {
-  position: absolute;
+   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
@@ -18,7 +18,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
-}
+} 
 .poster--icon {
   color: #781818;
   margin-right: 1rem;
