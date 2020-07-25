@@ -86,7 +86,24 @@ class App extends Component {
   handleSearch = value => {
     console.log('handleSearch',value)
   }
-  loadMore = () => {
+  loadMore = async () => {
+    try{
+      this.setState({loading: true});
+      const { data : {results, page, total_Pages}} = await this.loadMovies();
+        console.log('res',results);
+        this.setState({
+          movies: [...this.state.movies,...results],
+          loading:false,
+          activePage: page,
+          totalPages:total_Pages,
+          image:`${IMAGE_BASE_URL}/${BACKDROP_SIZE}/${results[0].backdrop_path}`,
+          mTitle: results[0].title,
+          mDescription: results[0].overview
+
+        })
+    }catch(e){
+        console.log("erreur de loadmore" ,  e);
+    }
     console.log('load More')
   }
   render(){
