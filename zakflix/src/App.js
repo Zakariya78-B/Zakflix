@@ -3,7 +3,7 @@ import axios from 'axios';
 import {BrowserRouter,Route,Switch} from 'react-router-dom'
 
 
-import { Home } from './routes'
+import { Home,Details } from './routes'
 import { Header, Spinner } from './components';
 import { API_URL,API_KEY,IMAGE_BASE_URL,BACKDROP_SIZE} from './components/config'
 
@@ -113,7 +113,8 @@ class App extends Component {
                         onButtonClick={this.loadMore}
                       />
             )}
-          />   
+          /> 
+            <Route path="/:id" exact component={Details}/>  
           </Switch>
             )}
         
