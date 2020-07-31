@@ -3,7 +3,7 @@ import axios from 'axios';
 import {BrowserRouter,Route,Switch} from 'react-router-dom'
 
 
-import { Home,Details } from './routes'
+import { Home,Details, NotFound } from './routes'
 import { Header, Spinner } from './components';
 import { API_URL,API_KEY,IMAGE_BASE_URL,BACKDROP_SIZE} from './components/config'
 
@@ -115,6 +115,7 @@ class App extends Component {
             )}
           /> 
             <Route path="/:id" exact component={Details}/>  
+            <Route component={NotFound}/> 
           </Switch>
             )}
         
