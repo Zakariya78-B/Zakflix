@@ -6,3 +6,6 @@ export * from './Poster';
 export * from './LoadButton';
 export * from './Spinner';
 export * from './Container';
+export * from './Stars';
+export * from './ActorList';
+export * from './Actor';
