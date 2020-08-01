@@ -6,8 +6,8 @@ class Actor extends Component{
         const name = this.props.name.split(" ");
         return(
             <div className="actor">
-                <img className="actor--img" alt="actor" src={this.props.imgSrc}/>
-                {this.props.hover?
+                <img className="actor--img" alt="actor" src={this.props.imgSrc} />
+                {this.props.hover ?
                     (
                             <div className="actor--overlay">
                                 <h3 className="actor--name">{name[0]}</h3>

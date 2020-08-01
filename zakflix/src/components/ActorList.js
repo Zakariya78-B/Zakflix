@@ -4,8 +4,9 @@ import {Actor} from './index';
 
 const ActorList = props => {
 
-    renderActor = () =>{
-        return props.Actors.map((actor,i) =>{
+    const renderActor = () =>{
+        console.log(props.actors)
+        return props.actors.map((actor, i) =>{
             const imgSrc = './images/Fast_small.jpg';
             return (
                 <Actor
@@ -19,7 +20,7 @@ const ActorList = props => {
     return (
         <div className="actorList">
             <h3 className="actorList--title">ACTEURS</h3>
-    <div className="actorList--grid">{renderActor()}</div>
+            <div className="actorList--grid">{renderActor()}</div>
         </div>
     )
 }
