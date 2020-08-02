@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Container, Stars } from './index';
+import '../css/HeaderDetails.css';
 
 class HeaderDetails extends Component{
     render(){
         const imgSrc = this.props.imgSrc;
         return(
             <div className="headerDetails">
-                <div className="headerDetails--decoration">{this.props.status}</div>
+                <div className="badge-decoration">{this.props.status}</div>
                 <div className="headerDetails--poster">
                     <img className="headerDetails--poster__img" src={imgSrc} />
                 </div>

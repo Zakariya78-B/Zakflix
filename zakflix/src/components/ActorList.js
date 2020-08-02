@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {Actor} from './index';
+import '../css/ActorList.css';
 
 const ActorList = props => {
 
@@ -13,6 +14,7 @@ const ActorList = props => {
                     key={i}
                     imgSrc={imgSrc}
                     name={actor.name}
+                    hover={false}
                 />
             )
         })
