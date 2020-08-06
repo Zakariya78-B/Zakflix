@@ -35,8 +35,32 @@ class Details extends Component {
         try{
             const movieId = this.props.match.params.id;
             const url = `${API_URL}/movie/${movieId}?api_key=${API_KEY}&language=fr`;
-            const res = await this.loadInfos(url);
-            console.log('res',res);
+            const {
+                data : {
+                    revenue,
+                    runtime,
+                    title,
+                    overview,
+                    status,
+                    vote_average,
+                    poster_path
+                }
+            } = await this.loadInfos(url);
+            this.setState({
+                revenue,
+                runtime,
+                mTitle:title,
+                mDesc:overview,
+                status,
+                imgSrc:poster_path,
+                vote:vote_average
+            },async () =>{
+                const url = `${API_URL}/movie/${movieId}/credits?api_key=${API_KEY}&language=fr`;
+                const { data : { cast } } = await this.loadInfos(url);
+                this.setState({
+                    actors:[...cast],loading:false
+                });
+            })
         }catch(e){
             console.log('e',e);
         }
