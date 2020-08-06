@@ -1,5 +1,9 @@
 import React , { Component } from 'react';
+import axios from 'axios';
+
 import {Spinner, HeaderDetails, ActorList } from '../components';
+import {API_URL,API_KEY} from '../components/config'
+
 
 
 class Details extends Component {
@@ -27,6 +31,17 @@ class Details extends Component {
         status:" Released",
         vote:""
     }
+    async componentDidMount(){
+        try{
+            const movieId = this.props.match.params.id;
+            const url = `${API_URL}/movie/${movieId}?api_key=${API_KEY}&language=fr`;
+            const res = await this.loadInfos(url);
+            console.log('res',res);
+        }catch(e){
+            console.log('e',e);
+        }
+    }
+    loadInfos = url => axios.get(url);
     render(){
         const{loading, mTitle,mDesc,imgSrc,runtime,revenue,status,vote,actors} = this.state;
 
