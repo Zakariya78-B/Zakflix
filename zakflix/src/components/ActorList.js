@@ -9,7 +9,7 @@ const ActorList = props => {
     const renderActor = () =>{
         console.log(props.actors)
         return props.actors.map((actor, i) =>{
-            const imgSrc = `${IMAGE_BASE_URL}/${POSTER_SIZE}/${actor.profile_path}`;
+            const imgSrc = `${IMAGE_BASE_URL}/${POSTER_SIZE}/${actor.profile_pat}`;
             return (
                 <Actor
                     key={i}
