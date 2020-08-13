@@ -15,3 +15,12 @@ export const addMovie = movie => {
     }
 
 }
+export const removeMovie = movieId => {
+    const oldMovies = JSON.parse(localStorage.getItem('movies'));
+    const movies = oldMovies.filter(movie => movie.id !== movieId);
+    localStorage.setItem('movies',JSON.stringify(movies));
+    return {
+        type: REMOVE_MOVIE,
+        payload:movies
+    }
+}
