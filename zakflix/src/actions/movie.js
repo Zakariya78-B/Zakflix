@@ -32,3 +32,16 @@ export const getMovies = () =>{
         payload:movies
     }
 }
+export const getNumber = () =>{
+    const movies = JSON.parse(localStorage.getItem("movies"));
+    let number;
+    if(movies){
+        number = movies.length;
+    }else{
+        number = 0;
+    }
+    return{
+        type: GET_NUMBER,
+        payload : number
+    }
+}
