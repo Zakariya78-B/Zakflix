@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {BrowserRouter,Route,Switch} from 'react-router-dom'
+import { BrowserRouter,Route,Switch } from 'react-router-dom';
+import { Provider } from 'react-redux';
+
 
 
 import { Home,Details, NotFound } from './routes'
 import { Header, Spinner } from './components';
-import { API_URL,API_KEY,IMAGE_BASE_URL,BACKDROP_SIZE} from './components/config'
+import { API_URL,API_KEY,IMAGE_BASE_URL,BACKDROP_SIZE} from './components/config';
+import { store } from './store'
 
 import './App.css';
 
@@ -97,6 +100,7 @@ class App extends Component {
   }
   render(){
       return (
+      <Provider store={store}>
         <BrowserRouter>
               <div className="App">
           <Header badge={this.state.badge} />
@@ -122,6 +126,7 @@ class App extends Component {
         
           </div>
         </BrowserRouter>
+        </Provider>
 
   );
   }
