@@ -24,3 +24,11 @@ export const removeMovie = movieId => {
         payload:movies
     }
 }
+
+export const getMovies = () =>{
+    const movies = JSON.parse(localStorage.getItem("movies"));
+    return {
+        type: GET_MOVIE,
+        payload:movies
+    }
+}
