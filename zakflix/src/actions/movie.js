@@ -11,7 +11,7 @@ export const addMovie = movie => {
     localStorage.setItem("movies", JSON.stringify(movies));
     return {
         type: ADD_MOVIE,
-        payload:movies
+        payload: movies
     }
 
 }
@@ -21,18 +21,18 @@ export const removeMovie = movieId => {
     localStorage.setItem('movies',JSON.stringify(movies));
     return {
         type: REMOVE_MOVIE,
-        payload:movies
+        payload: movies
     }
 }
 
-export const getMovies = () =>{
+export const getMovies = () => {
     const movies = JSON.parse(localStorage.getItem("movies"));
     return {
         type: GET_MOVIE,
-        payload:movies
+        payload: movies
     }
 }
-export const getNumber = () =>{
+export const getNumber = () => {
     const movies = JSON.parse(localStorage.getItem("movies"));
     let number;
     if(movies){

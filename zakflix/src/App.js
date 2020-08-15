@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 import { Home,Details, NotFound } from './routes'
 import { Header, Spinner } from './components';
 import { API_URL,API_KEY,IMAGE_BASE_URL,BACKDROP_SIZE} from './components/config';
-import { store } from './store'
+import  store  from './store';
 
 import './App.css';
 

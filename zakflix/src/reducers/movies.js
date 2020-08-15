@@ -1,11 +1,11 @@
-import {ADD_MOVIE,REMOVE_MOVIE,GET_MOVIE,GET_NUMBER } from './actions';
+import {ADD_MOVIE,REMOVE_MOVIE,GET_MOVIE,GET_NUMBER } from '../actions';
 
 const initialState = {
     movies : [],
     number: 0
 }
-export const movieReducer = (state,action) => {
-    switch(action,type){
+export const movieReducer = (state =initialState,action) => {
+    switch(action.type){
         case ADD_MOVIE:
             return {
                 movies: action.payload,
