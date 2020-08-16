@@ -22,7 +22,7 @@ class HomeComponent extends Component{
                 <Searchbar onSearchClick={this.props.onSearchClick}/>
                 <PosterList movies={movies} localMovies={this.props.localMovies} />
                 <LoadButton onButtonClick={this.props.onButtonClick} loading={loading}/>
-                 /div>
+            </div>
         )
     }
 }
