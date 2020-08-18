@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 class MvPlayerListItem extends Component {
     render(){
+        const activeClass = this.props.active ? 'mvPlayerListItem active' : 'mvPlayerListitem';
         return (
             <>
                 <div className={activeClass}>
