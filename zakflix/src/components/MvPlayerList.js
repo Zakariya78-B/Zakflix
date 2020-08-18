@@ -1,8 +1,8 @@
-const { Component } = require("react")
 
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 import { MvPlayerListItem } from './index';
+import '../css/MvPlayerList.css';
 
 
 
