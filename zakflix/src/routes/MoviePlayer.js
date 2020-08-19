@@ -98,12 +98,28 @@ class MoviePlayer extends Component {
         }
 
     }
+    componentDidUpdate(prevProps){
+        console.log('component did update');
+        if(prevProps.match.params.id !== this.props.match.params.id ){
+            const id = this.props.match.params.id;
+            const selectedMovie = this.getSelectedMovie(newMovies, id);
+            this.setState({ selectedMovie });
+        }
+    }
+
     getSelectedMovie = (movies, movieId) => {
         const selectedMovie = _.find(movies, { id : parseInt(movieId,10)});
         return selectedMovie;
     }
-    handeleEnded = () =>{
+
+    handelEnded = () =>{
         console.log('video ended');
+        const { movies, selectedMovie } = this.state;
+        const movieIndex = movies.findIndex(movie => selectedMovie.id === movie.id);
+        const nextMovieIndex = movieIndex === movies.length - 1 ? 0 : movieIndex + 1;
+        const NewSelectedMovie = movies[nextMovieIndex];
+        this.props.history.push({pathname: `/player/${NewSelectedMovie.id}`});
+        this.setState({ selectedMovie: NewSelectedMovie });
     }
     getTime = movieId => {
         return new Promise((resolve,reject) =>{
@@ -141,7 +157,7 @@ class MoviePlayer extends Component {
                  <VideoPlayer 
                     videoUrl={selectedMovie.videoUrl}
                     imageUrl={selectedMovie.imageUrl}
-                    handeleEnded={this.handeleEnded}
+                    handelEnded={this.handelEnded}
                 />
                 <MvPlayerList 
                     movies={movies}

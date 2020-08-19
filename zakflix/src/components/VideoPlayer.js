@@ -22,7 +22,7 @@ class VideoPlayer extends Component {
                     height="100%"
                     style={{ position: "absolute", top: "0", left: "0"}}
                     light={this.props.imageUrl}
-                    onEnded={this.props.handleEnded}
+                    onEnded={this.props.handelEnded}
                 />
             </div>
         )
