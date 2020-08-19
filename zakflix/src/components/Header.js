@@ -19,7 +19,9 @@ class HeaderComponent extends Component {
                     </Link>
                     
                     <h3>ZAKFLIX</h3>
-                    <FontAwesome className="header--heart" name="heart" size="5x" />
+                    <Link to={{ pathname: "/player"}}>
+                        <FontAwesome className="header--heart" name="heart" size="5x" />
+                    </Link>
                     <div className="header--badge">{this.props.badge}</div>
                 </div>
         )
