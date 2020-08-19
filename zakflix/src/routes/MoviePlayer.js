@@ -1,6 +1,9 @@
 import React, {Component } from 'react';
+import axios from 'axios';
 
 import { VideoPlayer,MvPlayerList,Spinner} from '../components/';
+import { API_KEY, API_URL } from '../config';
+
 import '../css/MoviePlayer.css';
 
 class MoviePlayer extends Component {
@@ -58,6 +61,19 @@ class MoviePlayer extends Component {
     }
     handeleEnded = () =>{
         console.log('video ended');
+    }
+    getTime = movieId => {
+        return new Promise((resolve,reject) =>{
+            const url = `${API_URL}/movies/${movieId}?api_key=${API_KEY}&language=fr`;
+            axios.get(url).then(data => {
+                const duration = data.data.duration;
+                resolve(duaration)
+            })
+            .catch(e => {
+                console.log('e',e);
+                reject('error' , e);
+            })
+        })
     }
     render(){
         const { movies, selectedMovie } = this.state;
