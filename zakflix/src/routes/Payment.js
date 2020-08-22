@@ -4,9 +4,11 @@ import firebase from 'firebase';
 import { Paypal } from '../components';
 
 const client = {
-    sandbox: "xxxx",
+    sandbox: "AUeu7IxLdocBYRHL7LhezyaNINTCZwob-fOyZSCtFc7RjgOF2Q0HyWXj_Wafh81M3_LbowonvTgqvcSu",
     production: "xxxxxx"
 }
+
+const env = process.env.NODE_ENV === "production" ? "production": "sandbox";
 
 const total = 100;
 
