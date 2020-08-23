@@ -20,11 +20,26 @@ const onError = (error) => {
 
 const onCancel = data => console.log('payment annulé', data);
 
-const onSuccess = Payment => {
-    console.log("payment reussi")
-}
+
 
 const Payment = props => {
+    const onSuccess = Payment => {
+        console.log("payment reussi");
+        const user = firebase.auth().currentUser;
+        const dbRef = firebase.database().ref(`users/${user.uid}`);
+        const now = new Date();
+        const newDate = now.setDate(now.getDate() + 30);
+        console.log('newDate', newDate);
+        dbRef
+            .set({ validUntil: newDate})
+                .then(() => {
+                    console.log('opération réussie',data);
+                    props.history.push({ pathname: '/'})
+                })
+                .catch(e => {
+                    console.log('error');
+                })
+}
     return(
         <Paypal 
             env={env}
