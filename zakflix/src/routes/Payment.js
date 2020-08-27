@@ -32,7 +32,7 @@ const Payment = props => {
         console.log('newDate', newDate);
         dbRef
             .set({ validUntil: newDate})
-                .then(() => {
+                .then(data => {
                     console.log('opération réussie',data);
                     props.history.push({ pathname: '/'})
                 })
